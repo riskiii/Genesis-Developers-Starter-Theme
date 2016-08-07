@@ -9,3 +9,14 @@
  * @license     GNU General Public License 2.0+
  */
 namespace KnowTheCode\Developers;
+
+/**
+ * Unregister archive callbacks.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function unregister_archive_callbacks() {
+
+}
