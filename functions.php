@@ -1,6 +1,6 @@
 <?php
 /**
- * Description
+ * Developer's Theme
  *
  * @package     KnowTheCode\Developers
  * @since       1.0.0
