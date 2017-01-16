@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 	neat = require('bourbon-neat').includePaths,
 	sass = require('gulp-sass'),
 	postcss = require('gulp-postcss'),
-	autoprefixer = require('gulp-autoprefixer'),
+	autoprefixer = require('autoprefixer'),
 	sourcemaps = require('gulp-sourcemaps'),
 	cssMinify = require('gulp-cssnano'),
 	sassLint = require('gulp-sass-lint'),
@@ -35,7 +35,7 @@ function handleErrors() {
 		sound: 'Sosumi' // See: https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults
 	}).apply(this, args);
 
-	gutil.beep(); // Beep 'sosumi' again
+	//gutil.beep(); // Beep 'sosumi' again
 
 	// Prevent the 'watch' task from stopping
 	this.emit('end');
