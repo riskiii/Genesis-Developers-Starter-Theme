@@ -53,48 +53,51 @@ gulp.task('postcss', function(){
 
 	return gulp.src('assets/sass/style.scss')
 
-           // Error handling
-           .pipe(plumber({
-                errorHandler: handleErrors
-           }))
+        // Error handling
+        .pipe(plumber({
+            errorHandler: handleErrors
+        }))
 
-	           // Wrap tasks in a sourcemap
-			.pipe( sourcemaps.init())
+        // wrap tasks in a sourcemap
+        .pipe(sourcemaps.init())
 
-			.pipe( sass({
-				includePaths: [].concat( bourbon, neat ),
-				errLogToConsole: true,
-				outputStyle: 'expanded' // Options: nested, expanded, compact, compressed
-			}))
+        .pipe(sass({
+            includePaths: [].concat( bourbon, neat ),
+            errLogToConsole: true,
+            outputStyle: 'expanded' // Options: nested, expanded, compact, compressed
+        }))
 
-		   .pipe( postcss([
-			   autoprefixer({
-				   browsers: ['last 2 versions']
-			   })
-		   ]))
+        .pipe(postcss([
+            autoprefixer({
+                browsers: ['last 2 versions']
+            })
+        ]))
 
-			// creates the sourcemap
-			.pipe(sourcemaps.write())
+        // creates the sourcemap
+        .pipe(sourcemaps.write())
 
-			.pipe(gulp.dest('./'));
+        .pipe(gulp.dest('./'));
 
 });
 
 gulp.task('css:minify', ['postcss'], function() {
-	return gulp.src('style.css')
-       // Error handling
-       .pipe(plumber({
-           errorHandler: handleErrors
-       }))
+    return gulp.src('style.css')
 
-		.pipe( cssMinify({
-			safe: true
-		}))
-       .pipe(rename('style.min.css'))
-       .pipe(gulp.dest('./'))
-		.pipe(notify({
-			message: 'Styles are built.'
-		}))
+        .pipe(plumber({
+            errorHandler: handleErrors
+        }))
+
+        .pipe(cssMinify({
+            safe: true
+        }))
+
+        .pipe(rename('style.min.css'))
+
+        .pipe(gulp.dest('./'))
+
+        .pipe(notify({
+            message: 'Styles are built.'
+        }));
 });
 
 gulp.task('sass:lint', ['css:minify'], function() {
