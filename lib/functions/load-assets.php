@@ -25,9 +25,34 @@ function enqueue_assets() {
 
 	wp_enqueue_script( CHILD_TEXT_DOMAIN . '-responsive-menu', CHILD_URL . '/assets/js/responsive-menu.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
 
-	$localized_script_args = array(
-		'mainMenu' => __( 'Menu', CHILD_TEXT_DOMAIN ),
-		'subMenu'  => __( 'Menu', CHILD_TEXT_DOMAIN ),
+	// changed for new Sample theme v.2.3.0
+	wp_localize_script( 
+		CHILD_TEXT_DOMAIN . '-responsive-menu', 
+		'developersL10n', 
+		get_sample_responsive_menu_settings() 
 	);
-	wp_localize_script( CHILD_TEXT_DOMAIN . '-responsive-menu', 'developersL10n', $localized_script_args );
+}
+
+/**
+ * Get the sample theme's responsive menu settings
+ *
+ * @since 2.3.0
+ *
+ * @return array
+ */
+function get_sample_responsive_menu_settings() {
+	$settings = array(
+		'mainMenu'          => __( 'Menu', CHILD_TEXT_DOMAIN ),
+		'menuIconClass'     => 'dashicons-before dashicons-menu',
+		'subMenu'           => __( 'Submenu', CHILD_TEXT_DOMAIN ),
+		'subMenuIconsClass' => 'dashicons-before dashicons-arrow-down-alt2',
+		'menuClasses'       => array(
+			'combine' => array(
+				'.nav-primary',
+				'.nav-header',
+			),
+			'others'  => array(),
+		),
+	);
+	return $settings;
 }
