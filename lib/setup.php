@@ -3,7 +3,7 @@
  * Description
  *
  * @package     KnowTheCode\Developers
- * @since       2.3.0
+ * @since       2.3.1
  * @author      hellofromTonya
  * @link        https://knowthecode.io
  * @license     GNU General Public License 2.0+
@@ -159,14 +159,14 @@ function get_theme_settings_defaults() {
 	);
 }
 
-add_action( 'after_setup_theme', 'genesis_sample_localization_setup' );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\load_theme_localization_setup' );
 /**
  * Setup the theme's localization
  *
- * @since 2.3.0
+ * @since 2.3.1
  *
  * @return void
  */
-function genesis_sample_localization_setup(){
-	load_child_theme_textdomain( 'genesis-sample', get_stylesheet_directory() . '/languages' );
+function load_theme_localization_setup(){
+	load_child_theme_textdomain( CHILD_TEXT_DOMAIN, CHILD_THEME_DIR . '/languages' );
 }
