@@ -7,15 +7,16 @@
     "url": "git+https://github.com/KnowTheCode/Genesis-Developers-Starter-Theme.git"
   },
   "author": "hellofromTonya",
-  "license": "GPL-2",
+  "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/KnowTheCode/Genesis-Developers-Starter-Theme/issues"
   },
   "homepage": "https://github.com/KnowTheCode/Genesis-Developers-Starter-Theme#readme",
   "devDependencies": {
-    "autoprefixer": "^6.6.1",    
+    "autoprefixer": "^6.6.1",
     "bourbon": "^4.2.6",
     "bourbon-neat": "^1.7.2",
+    "breakpoint-sass": "^2.7.1",
     "css-mqpacker": "^5.0.1",
     "gulp": "^3.9.1",
     "gulp-cssnano": "^2.1.2",
@@ -26,6 +27,7 @@
     "gulp-sass": "^2.3.2",
     "gulp-sass-lint": "^1.2.0",
     "gulp-sourcemaps": "^1.6.0",
-    "sass-rem": "^1.2.2"
+    "sass-rem": "^1.2.2",
+    "susy": "^2.2.12"
   }
 }

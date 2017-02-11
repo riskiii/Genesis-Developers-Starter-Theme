@@ -5,6 +5,7 @@ var gulp = require('gulp'),
 	// Sass/CSS processes
 	bourbon = require('bourbon').includePaths,
 	neat = require('bourbon-neat').includePaths,
+	susy = require('susy'),
 	sass = require('gulp-sass'),
 	postcss = require('gulp-postcss'),
 	autoprefixer = require('autoprefixer'),
@@ -62,7 +63,7 @@ gulp.task('postcss', function(){
         .pipe(sourcemaps.init())
 
         .pipe(sass({
-            includePaths: [].concat( bourbon, neat ),
+            includePaths: [].concat( bourbon, neat, 'node_modules/susy/sass'),
             errLogToConsole: true,
             outputStyle: 'expanded' // Options: nested, expanded, compact, compressed
         }))
